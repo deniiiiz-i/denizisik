@@ -5,6 +5,17 @@
   --foreground: #1a1918;
   --muted: #8a8681;
   --rule: #d8d4cf;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #161514;
+    --foreground: #e9e6e2;
+    --muted: #8a8681;
+    --rule: #3c3936;
+    color-scheme: dark;
+  }
 }
 
 @theme inline {

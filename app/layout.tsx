@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import type { Metadata, Viewport } from "next";
 import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
@@ -19,6 +20,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#faf9f7" },
+    { media: "(prefers-color-scheme: dark)", color: "#161514" },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,7 +37,10 @@ export default function RootLayout({
       lang="en"
       className={`${instrumentSerif.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
